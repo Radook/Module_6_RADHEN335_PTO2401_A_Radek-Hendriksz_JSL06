@@ -20,20 +20,24 @@ function displayMenuItems(menu) {
         // QUESTION: How can you set the text content of the category element to the category name?
         menuContainer.appendChild(categoryHeader);
         // QUESTION: How can you append the category element to the menu container in the HTML?
+        const itemList = document.createElement('ul');
 
         // QUESTION: What HTML element represents a list of items? Create it here.
 
         // QUESTION: Loop through the items in the category and create list items for each one.
-
+    
         items.forEach(item => {
-            // QUESTION: Create a list item element here.
+            const listItem = document.createElement('li');
+            listItem.textContent = item;
 
-            // QUESTION: How can you set the text content of the list item element to the item name?
+            //event listener
+            listItem.addEventListener('click', () => addToOrder(item));
 
-            // QUESTION: Attach a click event listener to the list item to add it to the order.
-
-            // QUESTION: How can you append the list item to the list of items for this category?
+           
+            itemList.appendChild(listItem);
         });
+        
+        menuContainer.appendChild(itemList);
     }
 }
 
